@@ -17,37 +17,37 @@ let products = [
     {
         id: 1,
         name: 'Caesar Salad',
-        image: 'image/D1.PNG',
+        image: 'D1.PNG',
         price: 2500
     },
     {
         id: 2,
         name: 'Murgh Tandoori',
-        image: 'image/D2.PNG',
+        image: 'D2.PNG',
         price: 1500
     },
     {
         id: 3,
         name: 'Salmon Salad',
-        image: 'image/D3.PNG',
+        image: 'D3.PNG',
         price: 4000
     },
     {
         id: 4,
         name: 'Pumpkin Soup',
-        image: 'image/D4.PNG',
+        image: 'D4.PNG',
         price: 1700
     },
     {
         id: 5,
         name: 'Maxican Salad',
-        image: 'image/D5.PNG',
+        image: 'D5.PNG',
         price: 3000
     },
     {
         id: 6,
         name: 'Margherita Pizza',
-        image: 'image/D6.PNG',
+        image: 'D6.PNG',
         price: 2600
     },
     {
@@ -121,3 +121,4 @@ function changeQuantity(key, quantity) {
     }
     reloadCard();
 }
+

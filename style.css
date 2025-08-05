@@ -1,0 +1,357 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 50px;
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+  background-color: rgb(155, 86, 37);
+}
+
+header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+header nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.button {
+  padding: 10px;
+  background-color: #ffffff20;
+  border: solid #ffffff70;
+  border-radius: 56px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #ffffff50;
+}
+
+/* Root variables */
+:root {
+  --width-circle: 150vw;
+  --radius: calc(100vw / 6);
+}
+
+/* Slider Section */
+.slider {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color:saddlebrown;
+  background-image: radial-gradient(#FFCB61, transparent 60%);
+  margin-top: -50px;
+  z-index: 0;
+}
+
+.slider .list {
+  position: absolute;
+  width: max-content;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  transition: transform 0.8s;
+}
+
+.slider .list .item {
+  width: calc(var(--radius) * 2);
+  text-align: center;
+  transform: rotate(45deg);
+  transition: transform 1s;
+}
+
+.slider .list .item.active {
+  transform: rotate(0deg);
+}
+
+.slider .list .item img {
+  width: 90%;
+  filter: drop-shadow(0 0 20px #000000);
+}
+
+.slider .content {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #ffffff;
+  width: max-content;
+}
+
+.slider .content div:nth-child(2) {
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-weight: bold;
+  position: relative;
+}
+
+.slider .content div:nth-child(2)::before {
+  position: absolute;
+  left: 60%;
+  bottom: 50%;
+  width: 80px;
+  height: 80px;
+  background-image: url('leaves.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: '';
+}
+
+.slider .content div:nth-child(1) {
+  text-align: left;
+  text-transform: uppercase;
+  transform: translateY(20px);
+}
+
+.slider .content button {
+  border: 1px solid #fff;
+  background: transparent;
+  color: #eee;
+  font-family: Poppins;
+  letter-spacing: 5px;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+/* Arrow Buttons */
+#prev,
+#next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #eee9;
+  background-color: #eee5;
+  color: #eee;
+  font-size: x-large;
+  font-family: monospace;
+  cursor: pointer;
+  z-index: 15;
+}
+
+#prev {
+  left: 20px;
+}
+
+#next {
+  right: 20px;
+}
+
+/* Circle Effect */
+.circle {
+  pointer-events: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: radial-gradient(var(--radius), transparent 100%, #000);
+  mask: radial-gradient(var(--radius), #0000 98%, #000);
+  backdrop-filter: blur(10px);
+  background: radial-gradient(calc(var(--radius) + 1px), #eee5 100%, #eee2);
+}
+
+.circle span {
+  display: block;
+  position: absolute;
+  height: calc(var(--radius) * 2 + 50px);
+  top: 50%;
+  left: 50%;
+  --rotate: 50deg;
+  transform: translate(-50%, -50%) rotate(var(--rotate));
+  text-transform: uppercase;
+  color: #fff;
+  font-size: small;
+  animation: circleRotate 20s linear infinite;
+}
+
+@keyframes circleRotate {
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--rotate) + 360deg));
+  }
+}
+
+/* About Us Section */
+.about-section {
+   background-color:salmon;
+  background-image: radial-gradient(yellow, transparent 60%);
+  color: #333;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeInUp 1.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+  scroll-margin-top: 60px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: none;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  color: #8b3a3a;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Contact Us Section */
+.contact-section {
+  background: lightskyblue;
+  background-image: radial-gradient(#fff, transparent 100%);
+  color: #333;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeInUp 1.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+  scroll-margin-top: 60px;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.contact-image {
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+.contact-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: none;
+}
+
+.contact-text {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.contact-text h2 {
+  font-size: 2.5rem;
+  color: #8b3a3a;
+  margin-bottom: 20px;
+}
+
+.contact-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Social Media Icons */
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  margin-right: 15px;
+  font-size: 24px;
+  color: #8b3a3a;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ff6b6b;
+}
+
+@media (max-width: 768px) {
+  .about-container,
+  .contact-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text,
+  .contact-text {
+    text-align: center;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
